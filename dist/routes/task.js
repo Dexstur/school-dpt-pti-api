@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const task_control_1 = require("../controllers/task.control");
+const express_1 = require("express");
+const auth_1 = require("../auth/auth");
+const router = (0, express_1.Router)();
+router.post("/create/:courseId", auth_1.auth1, task_control_1.createTask);
+router.get("/ongoing", auth_1.auth0, task_control_1.ongoingTasks);
+router.get("/ongoing/all", auth_1.auth2, task_control_1.allOngoingTasks);
+router.get("/view", auth_1.auth0, task_control_1.viewTask);
+exports.default = router;
